@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday 🎉</title>
+<title>Happy Birthday Riyahhh 🎉</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
   text-align: center;
 }
@@ -15,7 +15,7 @@ body {
 /* PAGE 1 */
 #page1 {
   height: 100vh;
-  background: black;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
   color: white;
   display: flex;
   flex-direction: column;
@@ -25,21 +25,41 @@ body {
 
 h1 {
   font-size: 3em;
-  animation: glow 1.5s infinite alternate;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px pink; }
-  to { text-shadow: 0 0 30px hotpink; }
+  from { text-shadow: 0 0 10px #ff4da6; }
+  to { text-shadow: 0 0 30px #ff99cc; }
+}
+
+p {
+  font-size: 18px;
+  max-width: 80%;
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4da6;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
 }
 
 /* Sparkles */
 .sparkle {
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   background: white;
-  animation: fall 5s linear infinite;
+  animation: fall linear infinite;
 }
 
 @keyframes fall {
@@ -47,46 +67,45 @@ h1 {
   100% { transform: translateY(100vh); opacity: 0; }
 }
 
-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 20px;
-  background: hotpink;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
 /* PAGE 2 */
 #page2 {
   display: none;
   height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  color: black;
-  padding: 20px;
+  background: black;
 }
 
 /* SLIDESHOW */
 .slideshow {
+  height: 100vh;
   position: relative;
-  max-width: 300px;
-  margin: auto;
 }
 
 .slide {
   display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .slide img {
   width: 100%;
-  border-radius: 20px;
+  height: 100%;
+  object-fit: cover;
+  animation: zoom 6s infinite;
 }
 
-/* message */
-.message {
-  margin-top: 20px;
-  font-size: 18px;
+@keyframes zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.fade {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4}
+  to {opacity: 1}
 }
 </style>
 </head>
@@ -95,37 +114,39 @@ button {
 
 <!-- PAGE 1 -->
 <div id="page1">
-  <h1>✨ Happy Birthday 🎂 ✨</h1>
-  <p>Someone special deserves something special 💖</p>
+  <h1>✨ Happy Birthday Riyahhh 🎂 ✨</h1>
+  <p>
+    Oye Bandariyaa 🐒💖<br><br>
+    Tu sirf meri best friend nahi hai, tu meri sabse strong wali support hai.  
+    Main tujhpe itna trust karta hoon jitna shayad kisi pe nahi.  
+    Tu meri life ka wo part hai jiske bina sab thoda sa incomplete lagta hai.  
+    <br><br>
+    Aaj tera din hai — full enjoy kar, smile karte rehna…  
+    aur haan, attitude thoda kam rakhna 😂💫  
+  </p>
   <button onclick="nextPage()">Click Here 🎁</button>
 </div>
 
 <!-- PAGE 2 -->
 <div id="page2">
-
-  <h2>For You 💕</h2>
-
   <div class="slideshow">
-    <div class="slide"><img src="photo1.jpg"></div>
-    <div class="slide"><img src="photo2.jpg"></div>
-    <div class="slide"><img src="photo3.jpg"></div>
+    <div class="slide fade"><img src="photo1.jpg"></div>
+    <div class="slide fade"><img src="photo2.jpg"></div>
+    <div class="slide fade"><img src="photo3.jpg"></div>
+    <div class="slide fade"><img src="photo4.jpg"></div>
+    <div class="slide fade"><img src="photo5.jpg"></div>
+    <div class="slide fade"><img src="photo6.jpg"></div>
+    <div class="slide fade"><img src="photo7.jpg"></div>
+    <div class="slide fade"><img src="photo8.jpg"></div>
   </div>
-
-  <div class="message">
-    Happy Birthday! 🎉  
-    Tu meri life ka best part hai honestly.  
-    Jab bhi tu saath hoti hai na sab kuch easy lagta hai.  
-    Aaj ka din bas tere liye hai — smile karte rehna 😌💖  
-  </div>
-
 </div>
 
 <!-- MUSIC -->
 <audio id="song" src="song.mp3"></audio>
 
 <script>
-// sparkle
-for (let i = 0; i < 50; i++) {
+// sparkles
+for (let i = 0; i < 70; i++) {
   let s = document.createElement("div");
   s.className = "sparkle";
   s.style.left = Math.random() * 100 + "vw";
@@ -133,7 +154,7 @@ for (let i = 0; i < 50; i++) {
   document.body.appendChild(s);
 }
 
-// page change
+// next page + music
 function nextPage() {
   document.getElementById("page1").style.display = "none";
   document.getElementById("page2").style.display = "block";
@@ -151,7 +172,7 @@ function showSlides() {
   index++;
   if (index > slides.length) { index = 1 }
   slides[index - 1].style.display = "block";
-  setTimeout(showSlides, 2000);
+  setTimeout(showSlides, 2500);
 }
 </script>
 
